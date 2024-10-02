@@ -12,7 +12,7 @@ let
             in "Slotting % - " & (                      // Category +
                 if x < 0.8 or x = null then "< 80%"     // Sub: Low
                 else if x > 1.2 then "> 120%"           // Sub: High
-                else "80% - 120%"                       // Sub: Within Margin
+                else "> 80 < 120%"                       // Sub: Within Margin
             )
     ),
         // Group and count rows:
