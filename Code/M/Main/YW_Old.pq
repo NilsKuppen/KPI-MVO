@@ -1,0 +1,1 @@
+List.Max( KPI_Old[YW] ) // Last week of export

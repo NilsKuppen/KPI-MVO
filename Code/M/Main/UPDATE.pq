@@ -1,0 +1,1 @@
+YW<>YW_Old  // Compare new week with last export to determin if exporting is necessary

@@ -1,0 +1,25 @@
+<config>
+    <skip>
+        N
+    </skip>
+    <version>
+        1
+    </version>
+    <update>
+        <m> 
+            true
+        </m>
+        <vba> 
+            false
+        </vba>
+        <comment>
+            TEST 1
+        </comment>
+        <user>
+            Kuppen, Nils
+        </user> 
+        <dt>
+            2-10-2024
+        </dt>
+    </update>
+</config>
