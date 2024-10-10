@@ -36,10 +36,10 @@ let // Connect to sharepoint:
     // Convert zones to departments and locationtypes from number to description using lookup tables
     // Zones:
     Lut.Key = Table.AddColumn( f2.Col, "Key", each Text.Start( [LOCGRP.G ], 1 ) ),
-    Join.Lut = Table.NestedJoin( Lut.Key, "Key", Lut_Zone, "Type", "LUT" ),
+    Join.Lut = Table.NestedJoin( Lut.Key, "Key", Lut_Zone, "Type", "LUT", JoinKind.LeftOuter ),
     Exp.Lut = Table.ExpandTableColumn( Join.Lut, "LUT", {"Descr"}, {"Dept"} ),
     // Types:
-    Join.Lut.2 = Table.NestedJoin( Exp.Lut, "LOCGRP.TYPE", Lut_Type, "Type", "LUT" ),
+    Join.Lut.2 = Table.NestedJoin( Exp.Lut, "LOCGRP.TYPE", Lut_Type, "Type", "LUT", JoinKind.LeftOuter ),
     Exp.Lut.2 = Table.ExpandTableColumn( Join.Lut.2, "LUT", {"Descr"}, {"LocTyp"} ),   
 
     Output = Exp.Lut.2

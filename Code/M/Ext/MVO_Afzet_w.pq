@@ -7,8 +7,9 @@ let
         let
             t1 = Table.TransformColumnNames( Table.PromoteHeaders( Src{i}[Data]{0} ), (c) => Text.Remove(c, "-" ) ),
             t2 = Table.PromoteHeaders( Src{i}[Data]{3} ),
-            t12 = Table.Join( t1, {"ARTNR"}, t2, {"ARTNR"} ),
-            t = Table.AddColumn( t12, "EFC", each EFC{i} )
+            t12 = Table.NestedJoin( t1, {"ARTNR"}, t2, {"ARTNR"}, "X", JoinKind.LeftOuter ),
+            x.t12 = Table.ExpandTableColumn( t12, "X", { "TOTAAL" } ),
+            t = Table.AddColumn( x.t12, "EFC", each EFC{i} )
         in t,
 
     // Use function f with counter i to cycle through files and EFC#s
